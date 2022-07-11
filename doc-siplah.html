@@ -22,35 +22,37 @@
                 </div>
                 <div class="row p-2">
                     <a id="btn-proforma" class="btn btn-primary col m-1" target="_blank">Proforma Invoice</a>
-                    <a id="btn-invoice" class="btn btn-success col m-1" target="_blank">Invoice Lunas</a>
+                    <a id="btn-invoice" class="btn btn-danger col m-1" target="_blank">Invoice Lunas</a>
                     <a id="btn-bast" class="btn btn-warning col m-1" target="_blank">BAST</a>
                     <a id="btn-po" class="btn btn-info col m-1" target="_blank">SP /PO</a>
                 </div>
-
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Regenerate Invoice
-                </button>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Yakin Ingin Regenerate?</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="accordion accordion-flush mt-4" id="accordionFlushExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                aria-controls="flush-collapseOne">
+                                Regenerate
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                            aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                <p>Pilih salah satu dokumen yang akan di Regenerate!</p>
+                                <div class="row">
+                                    <a id="btn-reg-proforma" class="btn btn-warning col m-1" target="_blank">Proforma
+                                        Invoice</a>
+                                    <a id="btn-reg-invoice" class="btn btn-danger col m-1" target="_blank">Invoice
+                                        Lunas</a>
+                                    <a id="btn-reg-bast" class="btn btn-warning col m-1" target="_blank">BAST</a>
+                                    <a id="btn-reg-po" class="btn btn-info col m-1" target="_blank">SP /PO</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <p>Pilih salah satu dokumen yang akan di Regenerate!</p>
-                        <a id="btn-reg-proforma" class="btn btn-warning col m-1" target="_blank">Proforma Invoice</a>
-                        <a id="btn-reg-invoice" class="btn btn-danger col m-1" target="_blank">Invoice Lunas</a>
-                    </div>
-
                 </div>
             </div>
+            <div class="col-lg-2"></div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -73,7 +75,6 @@
                 // SP / PO
                 var urlPO = `https://api.siplah.tokoladang.co.id/document/${url}/po`;
                 $('#btn-po').attr('href', urlPO);
-
                 /**
                  * Regenaret Invoice
                  */
@@ -83,6 +84,12 @@
                 //Invoice Lunas
                 var urlRegInvoice = `https://api.siplah.tokoladang.co.id/document/${url}/invoice?cache=0`;
                 $('#btn-reg-invoice').attr('href', urlRegInvoice);
+                // BAST
+                var urlBAST = `https://api.siplah.tokoladang.co.id/document/${url}/bast?cache=0`;
+                $('#btn-reg-bast').attr('href', urlBAST);
+                // SP / PO
+                var urlPO = `https://api.siplah.tokoladang.co.id/document/${url}/po?cache=0`;
+                $('#btn-reg-po').attr('href', urlPO);
             });
         });
     </script>
